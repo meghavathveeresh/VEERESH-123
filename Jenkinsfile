@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-              git branch: 'main', url: 'https://github.com/meghavathveeresh/Petclinic.git'
+              git branch: 'main', credentialsId: 'GITHUB', url: 'https://github.com/meghavathveeresh/VEERESH-123.git'
             }
         }
           stage('Build') {
@@ -20,7 +20,7 @@ pipeline {
         }
 		stage('deploy') {
             steps {
-               deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'AMDN', path: '', url: 'http://localhost:8080')], contextPath: 'veereshkumar', war: 'target/*.war'
+             deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'AMDN', path: '', url: 'http://localhost:8080/')], contextPath: 'veeresh123', war: 'target/*.war'
             }
         }
     }
